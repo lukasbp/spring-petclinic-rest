@@ -69,6 +69,9 @@ public class Owner extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<Pet> pets;
 
+    @Column(name = "ativo")
+    @NotEmpty
+    private boolean ativo;
 
     public String getAddress() {
         return this.address;
@@ -80,6 +83,14 @@ public class Owner extends Person {
 
     public String getCity() {
         return this.city;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
     public void setCity(String city) {
